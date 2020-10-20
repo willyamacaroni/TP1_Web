@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block head %} acceuil {% endblock %}
+
+{% block content %}
+<div>
+    <h2>Produits</h2>
+    <table>
+        <tr>
+          <th>ID</th>
+          <th>Description</th>
+          <th>Prix</th>
+          <th>Coûtant</th>
+          <th>Taxable</th>
+          <th>Catégorie</th>
+          <th>Actions</th>
+        </tr>
+        {% for produit in lstProduits %}
+        <tr>
+          <td>{{ produit.id }}</td>
+          <td>{{ produit.description }}</td>
+          <td>{{ produit.prix }}</td>
+          <td>{{ produit.coutant }}</td>
+          {% if produit.taxableFed %}
+          <td>FD</td>
+          {% elif produit.taxableProv %}
+          <td>PV</td>
+          {% else %}
+          <td></td>
+          {% endif %}
+          <td>{{ produit.type }}</td>
+          <td>
+              <a href="/magasins/{{id}}/produit/supprimer/{{produit.id}}"><button type="button"><i class="far fa-trash-alt"></i></button></a>
+              <a href="/magasins/{{id}}/produit/modifier/{{produit.id}}"><button type="button"><i class="fas fa-pen"></i></button></a>
+            </td>
+         </tr>
+       {% endfor %}
+      </table>
+      <a href="{{id}}/produit/créer"><button>Créer nouveau produit</button></a>
+</div>
+{% endblock %}

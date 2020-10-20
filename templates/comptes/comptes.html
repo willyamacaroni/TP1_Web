@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block head %} acceuil {% endblock %}
+
+{% block content %}
+<table>
+    {% for id, nom in liste %}
+    <tr>
+        <td>
+            {{nom}}
+        </td>
+        <td>
+            <a href="/admin/comptes/supprimer/{{id}}"><button type="button"><i class="far fa-trash-alt"></i></button></a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="/admin/comptes/creer"><button type="button">créer</button></a>
+
+{% endblock %}

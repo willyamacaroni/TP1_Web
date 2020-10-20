@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- saved from url=(0101)chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/contentScriptDialog.html?dialogID=1&lplanguage=fr -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" type="text/css" href="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/fonts/opensans/opensans.css">
+<link rel="stylesheet" type="text/css" href="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/fonts/fontawesome.min.css">
+<link rel="stylesheet" type="text/css" href="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/newvaultGlobal.css">
+<link rel="stylesheet" type="text/css" href="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/buttons.css">
+<link rel="stylesheet" type="text/css" href="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/dialog.css">
+<link rel="stylesheet" type="text/css" href="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/contentScriptDialog.css">
+</head>
+
+<body class="dialogState">
+
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/topics.js"></script>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/platform.js"></script>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/platformOverride.js"></script>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/vaultStrings.js"></script>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/tools.js"></script>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/dialog.js"></script><div id="dialogLoadingOverlay" class="overlay"></div><div id="dialogOverlay" class="overlay"></div>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/dialogFields.js"></script>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/dialogs.js"></script>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/vaultDialogs.js"></script>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/contentScriptDialogs.js"></script>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/request.js"></script>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/controller.js"></script>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/model.js"></script>
+
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/interfaces.js"></script>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/contentScriptInterface.js"></script>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/contentScriptDialogInterface.js"></script>
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/initializeContentScriptDialog.js"></script><iframe class="backgroundFrame" src="./backgroundFrame.html"></iframe>
+
+
+
+
+<script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/contentScriptDialog.js"></script><script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/dialogWithGroupInput.js"></script><script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/contentScriptSiteDialog.js"></script><script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/selectDropdown.js"></script><script type="text/javascript" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/typeaheadDropdown.js"></script><div class="dialog responsive lmiDialog vaultDialog" role="dialog" aria-labelledby="siteDialogTitle" id="siteDialog" style=""><button class="focusCycler"></button><div class="dialogHeader icon displaynone"><div class="dialogHeaderInner"><button class="dialogAllSitesButton" automation-id="dialogAllSitesButton">Tous les éléments</button><span class="dialogHeaderTitle" id="siteDialogTitle"></span></div></div><div class="dialogContent dialogContentFixed"><div class="main">
+
+  <p class="question siteDialogHeader">Ajouter à LastPass?</p>
+
+  <p class="explanation siteDialogHeader"></p>
+
+  <div class="siteDialogContent">
+    <div class="tileContainer"><div class="tile">
+    <div class="tileTable">
+      <div class="tileTableCell addSiteFaviconContainer">
+        <div class="addSiteFavicon">
+          <div class="checkmark hoverFadeIn displaynone"></div>
+        <img class="favicon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADs0lEQVQ4Tz2TbUxbZRTHz3nupc9tb2m5pVAHDgg6wFkFCXNuKipTNJOmOojMuQw+GKLRmJgMY2LQLTFEcckSEz9oZIvZZpgomyEy39AYJY45GMuU7AUyCJS3tpS2ty/39t7nMUXwJCc5yTnnn3OS/w8BADgAIgAfXBi0NTQk96SJuk3PQSdjBhAUOOdABCTxvDS9dfujkuEq/yPxzR3cLGZa+2qLf9E+EVfZTjApAiHryuuBAMA4AEkDd4rjqe2WLnmkdWhjF2C6+cy2kp+038WYxcOsSZVJ9IKY5BFAFNcFOGemFSnP6I1iQvIw2TRiNVKrMrJ/AIEDSW09eUqapwcySvLv4CFHizVCqesL/zXIdjdi+eBgdeQJGrzr3YWPxQA2m47M7EyH60Fcau3zFnwbv0gMUZxtkXYVTBg7rEtGN7pzymFqSgX4B9/gV8QPSrsuUpWNDobL3vbZpyeFhLhFLeMvYri0t9k1J/RrtvTE4uul+0qOz08Rk4fheW8Z9O9KA7xAkPfnqJ7eH+SgvT5+j15vC5htQlRqD1an3sFV5dMDypr7TLwwdilT73zPdS56gQvGHHrvqMLLvtTGB5bklpPfW5es9VABTXDbeBa48tqCd7kHg1t7i5SYuDuZB4Hc7YoFhld/5ZCZw0fza9mYepQYNH++hXa7hsLHbCH5Kaix7NUX1VkhYVYv3U/Gcbmit9odll9OK5lJUqlcl34MDQNmZqDe+QD8FrsFprMg+RhpYpPRDntQ9hm1+LS4olNI2Z9ZqYoN4qrjs5eUWMHpREH4irHH0+n8OvgzECMQ9RU/5/gu0I+6pUh9SG4TbkY7rKHcx80S0y8s6nuBeV5ZuC9wDCOVJ/x5UzBgSMaNmz3FDZVvLVwVEmIhlzJRTIMTgACIbA0M7gSLhKGHrXXOicThnIjUvOrVO3Gx/VyZ52xoFDWLO7Kb+kWRrMmXU1+SlLmV2dg0EBInCahhFKOpcnxzrskxUnF87S+ic0eygvqyJoV06akeOit0MjkRiNbJrwb9ueP5Y2LV2KHUtW8ag1r3waI6zc3m7dOa0/5H7ARZo/cabuPS6IeuJ9dZmPz8K6W8Sx2SFqWdIGiQsRnX0xRWCCBF4ISjkMjRzDxLAmrAlMFU9LmlRsl359n9V7MXZJNPHR4oLO5X36chrQVTogJM2HTxfyOEAaN63Min55fr2NGS8+3T/8O0SWSWi2DbwN34Z9SLK7oAmxqmCZBvY9oOx2RR374bgFk2jxCEI+xfYNerMIpVRpsAAAAASUVORK5CYII="></div>
+      </div>
+      <div class="tileTableCell tileContent">
+        <div class="summaryView">
+          <div class="tileTable">
+            <div class="tileTableCell">
+              <p class="tilePrimary" dialogfielddisplay="name">127.0.0.1</p>
+              <p class="tileSecondary" dialogfielddisplay="unencryptedUsername">Dominik</p>
+              <div class="actionCell">
+                <div class="hoverAction">
+                  <button class="tileDetails viewButton"></button>
+                </div>
+              </div>
+            </div>
+            <div class="tileTableCell tileEditCell showCell">
+              <div class="tileEdit fa-stack">
+                <div class="fa fa-circle fa-stack-2x circle">
+                  <div class="fa fa-pencil fa-stack-1x fontAwesomeIcon"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+    <button class="updateAnotherSiteButton link displaynone">Je souhaite mettre à jour un autre compte</button>
+    <button class="addNewSiteButton link displaynone">Je veux ajouter un compte</button>
+    <div class="siteDialogButtons">
+      <div class="logo"></div>
+      <button id="close" class="lighterHover">Pas maintenant</button>
+      <button id="submit" class="rbtn">Ajouter</button>
+    </div>
+  </div>
+
+  <!-- Templates -->
+
+  <div class="dialogForm">
+    
+    <div class="dropdownContainer" style="margin: 0px 0px 9px;"><div class="relative"><div class="dropdownHint" style="line-height: 42px; padding-left: 10px; padding-right: 10px; font-weight: 600; left: 1px; right: 1px;"><span></span></div><input aria-label="Username" dialogfield="unencryptedUsername" class="usernameInput dialogInput typeaheadDropdown" type="text" placeholder="Entrer votre e-mail/nom d’utilisateur" spellcheck="false" style="margin: 0px;"></div><div class="dropdownMenu selectDropdownList lmiDropdown" style="margin-top: -2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"><ul><li dropdownvalue="1938912">1938912</li><li dropdownvalue="5151964">5151964</li><li dropdownvalue="9255431">9255431</li><li dropdownvalue="willyam">willyam</li><li dropdownvalue="willyamacaroni">willyamacaroni</li><li dropdownvalue="willyam.arcand@gmail.com">willyam.arcand@gmail.com</li><li dropdownvalue="ultragaming68">ultragaming68</li><li dropdownvalue="willyam.arcand@protic.net">willyam.arcand@protic.net</li><li dropdownvalue="dominik.kinimod@gmail.com">dominik.kinimod@gmail.com</li><li dropdownvalue="maxgaming68@gmail.com">maxgaming68@gmail.com</li><li dropdownvalue="omgitsgandalf">omgitsgandalf</li><li dropdownvalue="Willyamacaroni">Willyamacaroni</li><li dropdownvalue="willyamacaroni@gmail.com">willyamacaroni@gmail.com</li><li dropdownvalue="MCchallenge">MCchallenge</li><li dropdownvalue="ultragaming69">ultragaming69</li><li dropdownvalue="Willyam">Willyam</li><li dropdownvalue="MacaroniGod">MacaroniGod</li><li dropdownvalue="willyamislive">willyamislive</li><li dropdownvalue="willyam arcand">willyam arcand</li><li dropdownvalue="LLEEEROYjenkins">LLEEEROYjenkins</li><li dropdownvalue="spartan2667@gmail.com">spartan2667@gmail.com</li><li dropdownvalue="throwingkick">throwingkick</li><li dropdownvalue="MisunderstoodWanderer">MisunderstoodWanderer</li><li dropdownvalue="VizualDreamer">VizualDreamer</li><li dropdownvalue="G1X 3T5">G1X 3T5</li><li dropdownvalue="willyam.arcand@hotmail.com">willyam.arcand@hotmail.com</li><li dropdownvalue="RNBEntreprise@gmail.com">RNBEntreprise@gmail.com</li><li dropdownvalue="RNB.Entreprise">RNB.Entreprise</li><li dropdownvalue="Randb">Randb</li><li dropdownvalue="RNB Entreprise">RNB Entreprise</li><li dropdownvalue="arcandw">arcandw</li><li dropdownvalue="5819889531">5819889531</li><li dropdownvalue="willyam699">willyam699</li><li dropdownvalue="!»PÉÈ§0O|3ÍJåàtüÓ¢4&;T²mF¯@V°OQQ=Sá[¯ZIøë">!»PÉÈ§0O|3ÍJåàtüÓ¢4 T²mF¯@V°OQQ=Sá[¯ZIøë</li><li dropdownvalue="wooptidyscoop@gmail.com">wooptidyscoop@gmail.com</li><li dropdownvalue="MrDerpyDuck69">MrDerpyDuck69</li><li dropdownvalue="!ä¯ÉLÜ~${ú^3=Å]f)8Ùà§~ìI.&quot;0ê5:ÌÚ1¯»ÂVÆ·ÖÑ">!ä¯ÉLÜ~${ú^3=Å]f)8Ùà§~ìI."0ê5:ÌÚ1¯»ÂVÆ·ÖÑ</li><li dropdownvalue="The1macaroni">The1macaroni</li><li dropdownvalue="LordPapa">LordPapa</li><li dropdownvalue="willyamarcand">willyamarcand</li><li dropdownvalue="bnrr$78gd">bnrr$78gd</li><li dropdownvalue="ARCW78040202">ARCW78040202</li><li dropdownvalue="willyam.arcand@edu.cegepgarneau.ca">willyam.arcand@edu.cegepgarneau.ca</li><li dropdownvalue="RnB.entreprise">RnB.entreprise</li><li dropdownvalue="Arcand">Arcand</li><li dropdownvalue="!bY£­
+v=c&quot;áÌçî©þj¬júV¡ÂuäYðO4ÁåÎræ 9ÍãkXl">!bY£­
+v=c"áÌçî©þj¬júV¡ÂuäYðO4ÁåÎræ 9ÍãkXl</li><li dropdownvalue="warcand8">warcand8</li><li dropdownvalue="1938912                 ">1938912                 </li><li dropdownvalue="RobloxMouu">RobloxMouu</li><li dropdownvalue="MAYLLIWARCA">MAYLLIWARCA</li><li dropdownvalue="v1A005^PT#AZuMye">v1A005^PT#AZuMye</li><li dropdownvalue="willyam123">willyam123</li><li dropdownvalue="willyamArcand">willyamArcand</li><li dropdownvalue="472409******6338">472409******6338</li><li dropdownvalue=""></li><li dropdownvalue="Willyam Arcand 18 5819889531 willyamacaroni willyam.arcand@gmail.com">Willyam Arcand 18 5819889531 willyamacaroni willyam.arcand@gmail.com</li><li dropdownvalue="Leeeeerroy">Leeeeerroy</li><li dropdownvalue="4724090252946338">4724090252946338</li></ul></div></div><div class="relative" style="margin: 0px;"><input aria-label="Password" dialogfield="password" class="dialogInput passwordToggle password" type="password" spellcheck="false" style="margin: 0px;"><button class="showPassword textual" title="Afficher le mot de passe">AFFICHER</button></div>
+    <label for="siteDialogFolder" class="label">Dossier</label>
+    
+    <div class="dropdownContainer" style="margin: 0px;"><div class="relative"><div class="dropdownHint" style="line-height: 42px; padding-left: 10px; padding-right: 10px; font-weight: 600; left: 1px; right: 1px;"><span></span></div><input id="siteDialogFolder" dialogfield="group" class="dialogInput typeaheadDropdown clickToggles" type="text" spellcheck="false" style="margin: 0px;"></div><div class="dropdownMenu selectDropdownList lmiDropdown" style="margin-top: -2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"><ul><li dropdownvalue=""></li><li dropdownvalue="Arts">Arts</li><li dropdownvalue="Business">Business</li><li dropdownvalue="deep">deep</li><li dropdownvalue="Education">Education</li><li dropdownvalue="Email">Email</li><li dropdownvalue="Entertainment">Entertainment</li><li dropdownvalue="Finance">Finance</li><li dropdownvalue="Forum">Forum</li><li dropdownvalue="Games">Games</li><li dropdownvalue="gaming">gaming</li><li dropdownvalue="News/Reference">News/Reference</li><li dropdownvalue="notes">notes</li><li dropdownvalue="Productivity Tools">Productivity Tools</li><li dropdownvalue="school ">school </li><li dropdownvalue="Shopping">Shopping</li><li dropdownvalue="Social">Social</li></ul></div></div><button class="link neverSave">Ne jamais enregistrer ce site</button>
+  </div>
+
+  <div class="template tile">
+    <div class="tileTable">
+      <div class="tileTableCell addSiteFaviconContainer">
+        <div class="addSiteFavicon">
+          <div class="checkmark hoverFadeIn displaynone"></div>
+        <img class="favicon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADs0lEQVQ4Tz2TbUxbZRTHz3nupc9tb2m5pVAHDgg6wFkFCXNuKipTNJOmOojMuQw+GKLRmJgMY2LQLTFEcckSEz9oZIvZZpgomyEy39AYJY45GMuU7AUyCJS3tpS2ty/39t7nMUXwJCc5yTnnn3OS/w8BADgAIgAfXBi0NTQk96SJuk3PQSdjBhAUOOdABCTxvDS9dfujkuEq/yPxzR3cLGZa+2qLf9E+EVfZTjApAiHryuuBAMA4AEkDd4rjqe2WLnmkdWhjF2C6+cy2kp+038WYxcOsSZVJ9IKY5BFAFNcFOGemFSnP6I1iQvIw2TRiNVKrMrJ/AIEDSW09eUqapwcySvLv4CFHizVCqesL/zXIdjdi+eBgdeQJGrzr3YWPxQA2m47M7EyH60Fcau3zFnwbv0gMUZxtkXYVTBg7rEtGN7pzymFqSgX4B9/gV8QPSrsuUpWNDobL3vbZpyeFhLhFLeMvYri0t9k1J/RrtvTE4uul+0qOz08Rk4fheW8Z9O9KA7xAkPfnqJ7eH+SgvT5+j15vC5htQlRqD1an3sFV5dMDypr7TLwwdilT73zPdS56gQvGHHrvqMLLvtTGB5bklpPfW5es9VABTXDbeBa48tqCd7kHg1t7i5SYuDuZB4Hc7YoFhld/5ZCZw0fza9mYepQYNH++hXa7hsLHbCH5Kaix7NUX1VkhYVYv3U/Gcbmit9odll9OK5lJUqlcl34MDQNmZqDe+QD8FrsFprMg+RhpYpPRDntQ9hm1+LS4olNI2Z9ZqYoN4qrjs5eUWMHpREH4irHH0+n8OvgzECMQ9RU/5/gu0I+6pUh9SG4TbkY7rKHcx80S0y8s6nuBeV5ZuC9wDCOVJ/x5UzBgSMaNmz3FDZVvLVwVEmIhlzJRTIMTgACIbA0M7gSLhKGHrXXOicThnIjUvOrVO3Gx/VyZ52xoFDWLO7Kb+kWRrMmXU1+SlLmV2dg0EBInCahhFKOpcnxzrskxUnF87S+ic0eygvqyJoV06akeOit0MjkRiNbJrwb9ueP5Y2LV2KHUtW8ag1r3waI6zc3m7dOa0/5H7ARZo/cabuPS6IeuJ9dZmPz8K6W8Sx2SFqWdIGiQsRnX0xRWCCBF4ISjkMjRzDxLAmrAlMFU9LmlRsl359n9V7MXZJNPHR4oLO5X36chrQVTogJM2HTxfyOEAaN63Min55fr2NGS8+3T/8O0SWSWi2DbwN34Z9SLK7oAmxqmCZBvY9oOx2RR374bgFk2jxCEI+xfYNerMIpVRpsAAAAASUVORK5CYII="></div>
+      </div>
+      <div class="tileTableCell tileContent">
+        <div class="summaryView">
+          <div class="tileTable">
+            <div class="tileTableCell">
+              <p class="tilePrimary" dialogfielddisplay="name"></p>
+              <p class="tileSecondary" dialogfielddisplay="unencryptedUsername"></p>
+              <div class="actionCell">
+                <div class="hoverAction">
+                  <button class="tileDetails viewButton"></button>
+                </div>
+              </div>
+            </div>
+            <div class="tileTableCell tileEditCell">
+              <div class="tileEdit fa-stack">
+                <div class="fa fa-circle fa-stack-2x circle">
+                  <div class="fa fa-pencil fa-stack-1x fontAwesomeIcon"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="template deleteOverlayContainer">
+    <div class="deleteOverlay tileTable">
+      <div class="tileTableCell deleteSummary">
+        <p class="tilePrimary">Supprimer le doublon?</p>
+        <p class="tileSecondary">Nous allons mettre à jour votre coffre-fort</p>
+      </div>
+      <div class="tileTableCell cancelDeleteButtonCell">
+        <button class="lighterHover cancelDeleteButton">Conserver</button>
+      </div>
+      <div class="tileTableCell deleteButtonCell">
+        <button class="deleteButton">Oui, supprimer</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="animationContainer">
+    <div>
+      <div>
+
+      <svg class="inProcessAnimation" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <clippath id="inProcessAnimation-logoMask">
+            <circle cx="5" cy="13" r="5"></circle>
+            <circle cx="20" cy="13" r="5"></circle>
+            <circle cx="35" cy="13" r="5"></circle>
+            <path d="M45 5 C 45 0, 50 0, 50 5 v 20 C 50 30, 45 30, 45 25 Z"></path>
+          </clippath>
+        </defs>
+
+        <g clip-path="url(#inProcessAnimation-logoMask)">
+          <rect fill="#D32D27" height="30" width="50"></rect>
+          <rect fill="#81D6E3" height="30" width="50">
+            <animate attributeName="x" from="-50" to="50" dur="0.6s" repeatCount="indefinite" begin="0s"></animate>
+          </rect>
+        </g>
+      </svg>
+
+      <div class="successAnimation">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path id="successCheckmark" d="M5 10 L 9 14 C 10 15, 10 15, 11 14 L 22 3" stroke="#00CA95" stroke-width="3.5" fill="transparent" stroke-linecap="round"></path>
+        </svg>
+        <p class="successMessage successFadeIn">Tout est prêt!</p>
+      </div>
+
+    </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="removeGeneratedConfirmation" class="tileTable">
+  <div class="tileTableCell">
+    <p class="confirmationTitle">Êtes-vous sûr&nbsp;?</p>
+    <p class="confirmationText">Votre mot de passe généré ne sera pas enregistré dans le coffre-fort.</p>
+    <div class="siteDialogButtons">
+      <button id="undo" class="gbtn">Oui, supprimer</button>
+      <button id="closeConfirmation" class="rbtn">Aucune importance! Conserver dans le coffre-fort</button>
+    </div>
+  </div>
+</div>
+</div><button class="focusCycler"></button></div><link type="text/css" rel="stylesheet" href="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/contentScriptSiteDialog.css"><link type="text/css" rel="stylesheet" href="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/lmiDialog.css"></body></html>

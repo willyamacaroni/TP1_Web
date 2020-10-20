@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block head %} acceuil {% endblock %}
+{% block content %}
+
+{% for message in lstMessages %}
+<p>{{message}}</p>
+{% endfor %}
+
+<div>
+    <form action="/magasins/{{idMagasin}}/produit/créer" method="POST">
+        <label for="fDescription">Description:</label><br>
+        <input type="text" id="fDescription" name="fDescription"><br>
+
+        <label for="fPrix">Prix:</label><br>
+        <input type="number" id="fPrix" name="fPrix"><br>
+
+        <label for="fCoutant">Coutant:</label><br>
+        <input type="number" id="fCoutant" name="fCoutant"><br>
+
+        <label for="fStock">Stock:</label><br>
+        <input type="number" id="fStock" name="fStock"><br>
+
+        <label for="fFormat">Format:</label><br>
+        <input type="text" id="fFormat" name="fFormat"><br>
+
+        <legend>Taxe</legend>
+        <input type="radio" name="fTaxe" value="F" id="fTaxeF">
+        <label for="fTaxeF">F</label>
+        <input type="radio" name="fTaxe" value="P" id="fTaxeP">
+        <label for="fTaxeP">P</label>
+        <input type="radio" name="fTaxe" value="A" id="fTaxeAucun" checked>
+        <label for="fTaxeAucun">Aucun</label><br>
+
+        <select name="Categorie"  >
+            {% for categorie in lstCategories %}
+                <option value={{categorie[0]}}>{{categorie[1]}}</option>
+            {% endfor %}
+        </select><br>
+
+        <input type="submit" value="créer">
+
+      </form> 
+</div>
+{% endblock %}

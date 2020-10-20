@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block head %} acceuil {% endblock %}
+
+{% block content %}
+<div>
+    {% for id, nom in liste %}
+    <li><a href="/magasins/{{id}}">{{nom}}</a></li>
+    {% endfor %}
+    <li><a href="/magasins/tous">tous</a></li>
+</div>
+{% endblock %}

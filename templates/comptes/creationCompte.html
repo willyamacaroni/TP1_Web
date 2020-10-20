@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block head %} acceuil {% endblock %}
+
+{% block content %}
+<div>
+  {{message}}
+    <form action="/admin/comptes/creer" method="POST">
+        <label for="fNomUtilisateur">Nom utilisateur:</label><br>
+        <input type="text" id="fNomUtilisateur" name="fNomUtilisateur"><br>
+        <label for="fMotDePasse">Mot de passe:</label><br>
+        <input type="password" id="fMotDePasse" name="fMotDePasse"><br>
+        <label for="fAdmin"> Admin</label>
+        <input type="checkbox" id="fAdmin" name="fAdmin"><br>
+        <input type="submit" value="ok">
+      </form> 
+</div>
+{% endblock %}

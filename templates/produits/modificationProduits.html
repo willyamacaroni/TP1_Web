@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block head %} acceuil {% endblock %}
+
+{% block content %}
+{% for message in lstMessages %}
+<p>{{message}}</p>
+{% endfor %}
+<div>
+    <form action="/magasins/{{idMagasin}}/produit/modifier/{{id}}" method="POST">
+        <label for="fDescription">Description:</label><br>
+        <input type="text" id="fDescription" name="fDescription" value="{{produit[2]}}"><br>
+
+        <label for="fPrix">Prix:</label><br>
+        <input type="text" id="fPrix" name="fPrix" value={{produit[7]}}><br>
+
+        <label for="fCoutant">Coutant:</label><br>
+        <input type="text" id="fCoutant" name="fCoutant" value={{produit[4]}}><br>
+
+        <label for="fStock">Stock:</label><br>
+        <input type="text" id="fStock" name="fStock" value={{produit[3]}}><br>
+
+        <label for="fFormat">Format:</label><br>
+        <input type="text" id="fFormat" name="fFormat" value={{produit[6]}}><br>
+
+        <legend>Taxe</legend>
+        <input type="radio" name="fTaxe" value="F" id="fTaxeF" {{produit[10]}}>
+        <label for="fTaxeF">F</label>
+        <input type="radio" name="fTaxe" value="P" id="fTaxeP" {{produit[11]}}>
+        <label for="fTaxeP">P</label>
+        <input type="radio" name="fTaxe" value="A" id="fTaxeAucun" {{produit[12]}}>
+        <label for="fTaxeAucun">Aucun</label><br>
+
+        <select name="Categorie" value={{produit[9]}} >
+            {% for categorie in lstCategories %}
+                {% if categorie[0]|string() == produit[9]|string() %}
+                <option value={{categorie[0]}} selected>{{categorie[1]}}</option>
+                {% else %}
+                <option value={{categorie[0]}} >{{categorie[1]}}</option>
+                {% endif  %}
+            {% endfor %}
+        </select><br>
+
+        <input type="submit" value="créer">
+
+      </form> 
+</div>
+{% endblock %}
